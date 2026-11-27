@@ -1,0 +1,175 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1900" height="1500" viewBox="0 0 1900 1500" role="img" aria-labelledby="title desc">
+  <title id="title">Actual EF Core model for the Logistics Home Booking System</title>
+  <desc id="desc">Eight entities and seven relationships drawn from AppDbContext and Entities.cs. Locations and PricingRules are standalone in the configured EF model.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f5f8fc"/><stop offset="1" stop-color="#eaf0f7"/></linearGradient>
+    <filter id="shadow" x="-15%" y="-15%" width="130%" height="140%"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#18354e" flood-opacity=".11"/></filter>
+    <style>
+      text{font-family:Inter,'Segoe UI',Arial,sans-serif;fill:#183047}.title{font-size:34px;font-weight:750}.subtitle{font-size:17px;fill:#60768b}.entity{font-size:19px;font-weight:700;fill:#fff}.class{font-size:13px;font-weight:500;fill:#e3edf7}.field{font-family:Consolas,'Cascadia Mono','Courier New',monospace;font-size:14px;fill:#233c52}.meta{font-size:13px;fill:#536a7f}.rel{font-size:13px;font-weight:650;fill:#374f65}.card{filter:url(#shadow)}.legend{font-size:14px;fill:#344e65}
+    </style>
+  </defs>
+  <rect width="1900" height="1500" rx="24" fill="url(#background)"/>
+  <text x="950" y="55" class="title" text-anchor="middle">Logistics Home Booking System · EF Core entity model</text>
+  <text x="950" y="86" class="subtitle" text-anchor="middle">Model view from AppDbContext and Entities.cs · default runtime provider: EF Core InMemory</text>
+  <text x="950" y="112" class="meta" text-anchor="middle">8 modeled entities · 7 configured relationships · connectors show only configured foreign keys</text>
+
+  <!-- Relationships, drawn beneath entity cards -->
+  <g fill="none" stroke="#627d95" stroke-width="2.5">
+    <path d="M505 385 H610"/>
+    <path d="M1050 340 H1160"/>
+    <path d="M505 450 H540 V835 H590"/>
+    <path d="M835 475 V630"/>
+    <path d="M1160 505 H1125 V900 H1160"/>
+    <path d="M1495 565 V660"/>
+    <path d="M1160 1005 H1205 V1250 H1250"/>
+  </g>
+
+  <!-- Users -->
+  <g class="card">
+    <rect x="65" y="150" width="440" height="360" rx="14" fill="#fff" stroke="#b9cad9"/>
+    <path d="M79 150h412a14 14 0 0 1 14 14v42H65v-42a14 14 0 0 1 14-14" fill="#27699f"/>
+    <text x="88" y="179" class="entity">Users</text><text x="482" y="178" class="class" text-anchor="end">User</text>
+    <text x="88" y="230" class="field">PK  Id: Guid</text>
+    <text x="88" y="259" class="field">    FirstName: string</text>
+    <text x="88" y="288" class="field">    LastName: string</text>
+    <text x="88" y="317" class="field">UQ  Email: string</text>
+    <text x="88" y="346" class="field">    PhoneNumber: string</text>
+    <text x="88" y="375" class="field">    PasswordHash: string</text>
+    <text x="88" y="404" class="field">    Role: UserRole → string</text>
+    <text x="88" y="433" class="field">    CreatedAt: DateTime</text>
+    <text x="88" y="478" class="meta">Email has a unique index.</text>
+  </g>
+
+  <!-- Drivers -->
+  <g class="card">
+    <rect x="610" y="150" width="440" height="325" rx="14" fill="#fff" stroke="#b9cad9"/>
+    <path d="M624 150h412a14 14 0 0 1 14 14v42H610v-42a14 14 0 0 1 14-14" fill="#27699f"/>
+    <text x="633" y="179" class="entity">Drivers</text><text x="1027" y="178" class="class" text-anchor="end">Driver</text>
+    <text x="633" y="230" class="field">PK  Id: Guid</text>
+    <text x="633" y="259" class="field">FK  UserId: Guid</text>
+    <text x="633" y="288" class="field">    LicenseNumber: string</text>
+    <text x="633" y="317" class="field">    CurrentLocation: string</text>
+    <text x="633" y="346" class="field">    Status: DriverStatus → string</text>
+    <text x="633" y="393" class="meta">UserId is required; no unique constraint is configured.</text>
+  </g>
+
+  <!-- Vehicles -->
+  <g class="card">
+    <rect x="1160" y="150" width="650" height="415" rx="14" fill="#fff" stroke="#b9cad9"/>
+    <path d="M1174 150h622a14 14 0 0 1 14 14v42h-650v-42a14 14 0 0 1 14-14" fill="#27699f"/>
+    <text x="1183" y="179" class="entity">Vehicles</text><text x="1787" y="178" class="class" text-anchor="end">Vehicle</text>
+    <text x="1183" y="230" class="field">PK  Id: Guid</text>
+    <text x="1183" y="259" class="field">    Name: string</text>
+    <text x="1183" y="288" class="field">    Category: string</text>
+    <text x="1183" y="317" class="field">    RegistrationNumber: string</text>
+    <text x="1183" y="346" class="field">    CapacityKg: decimal</text>
+    <text x="1183" y="375" class="field">    CapacityVolumeM3: decimal</text>
+    <text x="1183" y="404" class="field">    DailyRate: decimal</text>
+    <text x="1183" y="433" class="field">    Status: VehicleStatus → string</text>
+    <text x="1183" y="462" class="field">FK? DriverId: Guid?</text>
+    <text x="1183" y="510" class="meta">Nullable driver FK; delete behavior is SET NULL.</text>
+  </g>
+
+  <!-- Pricing Rules, standalone -->
+  <g class="card">
+    <rect x="65" y="635" width="440" height="300" rx="14" fill="#fff" stroke="#b9cad9"/>
+    <path d="M79 635h412a14 14 0 0 1 14 14v42H65v-42a14 14 0 0 1 14-14" fill="#5d6e82"/>
+    <text x="88" y="664" class="entity">PricingRules</text><text x="482" y="663" class="class" text-anchor="end">PricingRule</text>
+    <text x="88" y="715" class="field">PK  Id: Guid</text>
+    <text x="88" y="744" class="field">    Category: string</text>
+    <text x="88" y="773" class="field">    BaseRate: decimal(18,2)</text>
+    <text x="88" y="802" class="field">    PerKilometerRate: decimal(18,2)</text>
+    <text x="88" y="831" class="field">    PerKgRate: decimal(18,2)</text>
+    <text x="88" y="860" class="field">    EffectiveFrom: DateTime</text>
+    <text x="88" y="889" class="field">    EffectiveTo: DateTime?</text>
+    <text x="88" y="916" class="meta">No foreign key relationship configured.</text>
+  </g>
+
+  <!-- Bookings -->
+  <g class="card">
+    <rect x="590" y="630" width="570" height="455" rx="14" fill="#fff" stroke="#9eb7cc" stroke-width="2"/>
+    <path d="M604 630h542a14 14 0 0 1 14 14v42H590v-42a14 14 0 0 1 14-14" fill="#6546a5"/>
+    <text x="613" y="659" class="entity">Bookings</text><text x="1142" y="658" class="class" text-anchor="end">Booking</text>
+    <text x="613" y="710" class="field">PK  Id: Guid</text>
+    <text x="613" y="739" class="field">FK  CustomerId: Guid</text>
+    <text x="613" y="768" class="field">FK? DriverId: Guid?</text>
+    <text x="613" y="797" class="field">FK? VehicleId: Guid?</text>
+    <text x="613" y="826" class="field">    PickupLocation: string</text>
+    <text x="613" y="855" class="field">    DeliveryLocation: string</text>
+    <text x="613" y="884" class="field">    GoodsType: string</text>
+    <text x="613" y="913" class="field">    ApproximateLoadKg: decimal</text>
+    <text x="613" y="942" class="field">    EstimatedCharge: decimal</text>
+    <text x="613" y="971" class="field">    FinalCharge: decimal?</text>
+    <text x="613" y="1000" class="field">    Status: BookingStatus → string</text>
+    <text x="613" y="1029" class="field">    CreatedAt / UpdatedAt: DateTime</text>
+    <text x="613" y="1064" class="meta">Customer FK is required; driver and vehicle FKs are nullable.</text>
+  </g>
+
+  <!-- Vehicle Availability -->
+  <g class="card">
+    <rect x="1260" y="660" width="550" height="320" rx="14" fill="#fff" stroke="#b9cad9"/>
+    <path d="M1274 660h522a14 14 0 0 1 14 14v42h-550v-42a14 14 0 0 1 14-14" fill="#27699f"/>
+    <text x="1283" y="689" class="entity">VehicleAvailabilities</text><text x="1792" y="688" class="class" text-anchor="end">VehicleAvailability</text>
+    <text x="1283" y="740" class="field">PK  Id: Guid</text>
+    <text x="1283" y="769" class="field">FK  VehicleId: Guid</text>
+    <text x="1283" y="798" class="field">    Date: DateTime</text>
+    <text x="1283" y="827" class="field">    IsAvailable: bool</text>
+    <text x="1283" y="856" class="field">    StartTime: TimeSpan</text>
+    <text x="1283" y="885" class="field">    EndTime: TimeSpan</text>
+    <text x="1283" y="933" class="meta">Required vehicle FK; delete behavior is CASCADE.</text>
+  </g>
+
+  <!-- Locations, standalone -->
+  <g class="card">
+    <rect x="65" y="1010" width="440" height="330" rx="14" fill="#fff" stroke="#b9cad9"/>
+    <path d="M79 1010h412a14 14 0 0 1 14 14v42H65v-42a14 14 0 0 1 14-14" fill="#5d6e82"/>
+    <text x="88" y="1039" class="entity">Locations</text><text x="482" y="1038" class="class" text-anchor="end">Location</text>
+    <text x="88" y="1090" class="field">PK  Id: Guid</text>
+    <text x="88" y="1119" class="field">    Name: string</text>
+    <text x="88" y="1148" class="field">    City: string</text>
+    <text x="88" y="1177" class="field">    State: string</text>
+    <text x="88" y="1206" class="field">    PostalCode: string</text>
+    <text x="88" y="1235" class="field">    Latitude: decimal(9,6)</text>
+    <text x="88" y="1264" class="field">    Longitude: decimal(9,6)</text>
+    <text x="88" y="1310" class="meta">No foreign key relationship configured.</text>
+  </g>
+
+  <!-- Payments -->
+  <g class="card">
+    <rect x="1250" y="1120" width="560" height="270" rx="14" fill="#fff" stroke="#b9cad9"/>
+    <path d="M1264 1120h532a14 14 0 0 1 14 14v42h-560v-42a14 14 0 0 1 14-14" fill="#27699f"/>
+    <text x="1273" y="1149" class="entity">Payments</text><text x="1792" y="1148" class="class" text-anchor="end">Payment</text>
+    <text x="1273" y="1200" class="field">PK  Id: Guid</text>
+    <text x="1273" y="1229" class="field">FK/UQ  BookingId: Guid</text>
+    <text x="1273" y="1258" class="field">    Amount: decimal</text>
+    <text x="1273" y="1287" class="field">    Provider: string</text>
+    <text x="1273" y="1316" class="field">    Status: PaymentStatus → string</text>
+    <text x="1273" y="1345" class="field">    PaidAt: DateTime?</text>
+    <text x="1273" y="1377" class="meta">One-to-one Booking relationship; BookingId is required and unique.</text>
+  </g>
+
+  <!-- Relationship cardinalities are placed on top of the connectors. -->
+  <g font-size="13" font-weight="700" fill="#31536f" text-anchor="middle">
+    <text x="520" y="374">1</text><text x="595" y="374">0..*</text>
+    <text x="1064" y="329">1</text><text x="1145" y="329">0..*</text>
+    <text x="520" y="438">1</text><text x="578" y="824">0..*</text>
+    <text x="823" y="492">1</text><text x="823" y="617">0..*</text>
+    <text x="1140" y="492">1</text><text x="1175" y="890">0..*</text>
+    <text x="1482" y="580">1</text><text x="1482" y="647">0..*</text>
+    <text x="1180" y="990">1</text><text x="1235" y="1238">0..1</text>
+  </g>
+
+  <!-- Relationship legend: keys and cardinalities transcribed from AppDbContext. -->
+  <rect x="540" y="1165" width="610" height="225" rx="14" fill="#ffffff" stroke="#d0dce7"/>
+  <text x="570" y="1200" font-size="17" font-weight="700">Configured relationships</text>
+  <text x="570" y="1225" class="legend">User 1 → 0..* Driver · required FK · CASCADE</text>
+  <text x="570" y="1248" class="legend">Driver 1 → 0..* Vehicle · optional FK · SET NULL</text>
+  <text x="570" y="1271" class="legend">User 1 → 0..* Booking · required FK · RESTRICT</text>
+  <text x="570" y="1294" class="legend">Driver 1 → 0..* Booking · optional FK · SET NULL</text>
+  <text x="570" y="1317" class="legend">Vehicle 1 → 0..* Booking · optional FK · SET NULL</text>
+  <text x="570" y="1340" class="legend">Vehicle 1 → 0..* VehicleAvailabilities · CASCADE</text>
+  <text x="570" y="1363" class="legend">Booking 1 → 0..1 Payment · required, unique FK · CASCADE</text>
+  <text x="570" y="1383" font-size="12" fill="#536a7f">PK = primary key · FK = foreign key · UQ = unique · ? = nullable FK</text>
+
+  <text x="1830" y="1460" text-anchor="end" class="meta">Source: AppDbContext.OnModelCreating and Models/Entities.cs</text>
+</svg>

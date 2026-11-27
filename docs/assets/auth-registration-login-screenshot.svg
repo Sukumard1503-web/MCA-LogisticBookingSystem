@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1120" viewBox="0 0 1600 1120" role="img" aria-labelledby="title desc">
+  <title id="title">Real registration and login API exchange</title>
+  <desc id="desc">Sanitized screenshots of successful registration and login calls against the local Logistics Home Booking System API. Passwords and JWTs are redacted.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f4f7fb"/><stop offset="1" stop-color="#eaf0f7"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="4" stdDeviation="7" flood-color="#17324d" flood-opacity=".12"/></filter>
+    <style>
+      text{font-family:Inter,'Segoe UI',Arial,sans-serif;fill:#183048}.title{font-size:34px;font-weight:750}.subtitle{font-size:16px;fill:#60758b}.paneltitle{font-size:20px;font-weight:700}.section{font-size:13px;font-weight:700;letter-spacing:1.2px;fill:#637b90}.mono{font-family:Consolas,'Cascadia Mono','Courier New',monospace;font-size:16px;fill:#dce8f3}.muted{fill:#a6b8c8}.green{fill:#5fe0aa}.pill{font-size:13px;font-weight:700;fill:#126346}.foot{font-size:14px;fill:#596f84}
+    </style>
+  </defs>
+  <rect width="1600" height="1120" rx="22" fill="url(#bg)"/>
+  <text x="800" y="57" text-anchor="middle" class="title">Registration &amp; Login · Verified API Exchange</text>
+  <text x="800" y="88" text-anchor="middle" class="subtitle">Captured from the local ASP.NET Core API · passwords and JWTs redacted</text>
+
+  <!-- registration panel -->
+  <g filter="url(#shadow)"><rect x="55" y="125" width="1490" height="430" rx="18" fill="#fff" stroke="#d4e0eb"/></g>
+  <text x="85" y="166" class="paneltitle">1. Register a customer</text>
+  <rect x="1383" y="142" width="128" height="30" rx="15" fill="#dff5eb"/><text x="1447" y="162" text-anchor="middle" class="pill">200 OK</text>
+  <text x="90" y="203" class="section">REQUEST · POST /api/auth/register</text>
+  <text x="830" y="203" class="section">RESPONSE · APPLICATION/JSON</text>
+  <rect x="80" y="216" width="700" height="313" rx="12" fill="#172b3e"/>
+  <rect x="805" y="216" width="715" height="313" rx="12" fill="#172b3e"/>
+  <text x="104" y="250" class="mono">{</text>
+  <text x="126" y="278" class="mono">"firstName": "Sample",</text>
+  <text x="126" y="306" class="mono">"lastName": "Customer",</text>
+  <text x="126" y="334" class="mono">"email": "doc-sample-7c27011028@example.test",</text>
+  <text x="126" y="362" class="mono">"phoneNumber": "0000000000",</text>
+  <text x="126" y="390" class="mono">"password": <tspan class="green">"[REDACTED]"</tspan>,</text>
+  <text x="126" y="418" class="mono">"role": "Customer"</text>
+  <text x="104" y="446" class="mono">}</text>
+  <text x="829" y="250" class="mono">{</text>
+  <text x="853" y="278" class="mono">"id": "cbcbd828-0c8b-4099-8de4-a6b634b3b0ac",</text>
+  <text x="853" y="306" class="mono">"firstName": "Sample",</text>
+  <text x="853" y="334" class="mono">"lastName": "Customer",</text>
+  <text x="853" y="362" class="mono">"email": "doc-sample-7c27011028@example.test",</text>
+  <text x="853" y="390" class="mono">"role": "Customer",</text>
+  <text x="853" y="418" class="mono">"token": <tspan class="green">"[REDACTED]"</tspan></text>
+  <text x="829" y="446" class="mono">}</text>
+
+  <!-- login panel -->
+  <g filter="url(#shadow)"><rect x="55" y="585" width="1490" height="400" rx="18" fill="#fff" stroke="#d4e0eb"/></g>
+  <text x="85" y="626" class="paneltitle">2. Log in with the registered account</text>
+  <rect x="1383" y="602" width="128" height="30" rx="15" fill="#dff5eb"/><text x="1447" y="622" text-anchor="middle" class="pill">200 OK</text>
+  <text x="90" y="663" class="section">REQUEST · POST /api/auth/login</text>
+  <text x="830" y="663" class="section">RESPONSE · APPLICATION/JSON</text>
+  <rect x="80" y="676" width="700" height="277" rx="12" fill="#172b3e"/>
+  <rect x="805" y="676" width="715" height="277" rx="12" fill="#172b3e"/>
+  <text x="104" y="710" class="mono">{</text>
+  <text x="126" y="738" class="mono">"email": "doc-sample-7c27011028@example.test",</text>
+  <text x="126" y="766" class="mono">"password": <tspan class="green">"[REDACTED]"</tspan></text>
+  <text x="104" y="794" class="mono">}</text>
+  <text x="829" y="710" class="mono">{</text>
+  <text x="853" y="738" class="mono">"id": "cbcbd828-0c8b-4099-8de4-a6b634b3b0ac",</text>
+  <text x="853" y="766" class="mono">"firstName": "Sample",</text>
+  <text x="853" y="794" class="mono">"lastName": "Customer",</text>
+  <text x="853" y="822" class="mono">"email": "doc-sample-7c27011028@example.test",</text>
+  <text x="853" y="850" class="mono">"role": "Customer",</text>
+  <text x="853" y="878" class="mono">"token": <tspan class="green">"[REDACTED]"</tspan></text>
+  <text x="829" y="906" class="mono">}</text>
+
+  <text x="80" y="1032" class="foot">Local capture used EF Core InMemory. This throwaway account is temporary and may disappear when the API restarts.</text>
+  <text x="1520" y="1078" text-anchor="end" class="subtitle">Logistics Home Booking System · API documentation</text>
+</svg>

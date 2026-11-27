@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="950" viewBox="0 0 1600 950" role="img" aria-labelledby="title desc">
+  <title id="title">Logistics Home Booking System architecture</title>
+  <desc id="desc">React frontend communicates with ASP.NET Core Web API. The backend uses services, repositories, and Entity Framework Core. The active default configuration uses InMemory persistence; PostgreSQL with Npgsql is optional when a valid connection string is configured.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f5f8fc"/><stop offset="1" stop-color="#eaf0f7"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="5" stdDeviation="8" flood-color="#17324d" flood-opacity=".12"/></filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M1 1L11 6 1 11Z" fill="#526b84"/></marker>
+    <marker id="arrowGreen" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M1 1L11 6 1 11Z" fill="#16845b"/></marker>
+    <style>
+      text{font-family:Inter,'Segoe UI',Arial,sans-serif;fill:#14283e}.title{font-size:34px;font-weight:750}.subtitle{font-size:17px;fill:#5a7086}.paneltitle{font-size:19px;font-weight:700}.label{font-size:16px;font-weight:650}.small{font-size:14px;fill:#536a80}.tiny{font-size:12px;fill:#61768a}.white{fill:#fff}.card{filter:url(#shadow)}
+    </style>
+  </defs>
+  <rect width="1600" height="950" rx="24" fill="url(#bg)"/>
+  <text x="800" y="66" text-anchor="middle" class="title">Logistics Home Booking System</text>
+  <text x="800" y="99" text-anchor="middle" class="subtitle">Implemented application components and configured persistence path</text>
+
+  <!-- frontend -->
+  <g class="card">
+    <rect x="55" y="160" width="420" height="520" rx="20" fill="#fff" stroke="#c9d8e6" stroke-width="2"/>
+    <rect x="55" y="160" width="420" height="68" rx="20" fill="#2867a6"/>
+    <path d="M55 208h420v20H55z" fill="#2867a6"/>
+    <text x="265" y="203" text-anchor="middle" class="paneltitle white">Frontend · React + TypeScript</text>
+    <text x="88" y="270" class="small">Vite SPA · React Router · Axios</text>
+    <rect x="88" y="294" width="354" height="77" rx="12" fill="#edf5fc" stroke="#d2e3f2"/>
+    <text x="265" y="325" text-anchor="middle" class="label">Pages and dashboards</text>
+    <text x="265" y="350" text-anchor="middle" class="small">Home · Login · Register · Customer · Provider · Admin</text>
+    <rect x="88" y="390" width="354" height="75" rx="12" fill="#edf5fc" stroke="#d2e3f2"/>
+    <text x="265" y="421" text-anchor="middle" class="label">Route protection</text>
+    <text x="265" y="446" text-anchor="middle" class="small">AuthContext · ProtectedRoute · role checks</text>
+    <rect x="88" y="484" width="354" height="75" rx="12" fill="#edf5fc" stroke="#d2e3f2"/>
+    <text x="265" y="515" text-anchor="middle" class="label">API client</text>
+    <text x="265" y="540" text-anchor="middle" class="small">Axios · bearer token from localStorage</text>
+    <rect x="88" y="578" width="354" height="65" rx="12" fill="#fff8e7" stroke="#f0d79a"/>
+    <text x="265" y="607" text-anchor="middle" class="small" font-weight="700">VITE_API_BASE_URL or default :5183</text>
+    <text x="265" y="629" text-anchor="middle" class="tiny">Configured backend launch URL: http://localhost:5183</text>
+  </g>
+
+  <!-- HTTP connection -->
+  <path d="M476 412H548" stroke="#526b84" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="512" y="390" text-anchor="middle" class="small">HTTP / JSON</text>
+  <path d="M548 448H478" stroke="#8b9caf" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="512" y="474" text-anchor="middle" class="tiny">API responses</text>
+
+  <!-- backend -->
+  <g class="card">
+    <rect x="565" y="160" width="570" height="520" rx="20" fill="#fff" stroke="#c9d8e6" stroke-width="2"/>
+    <rect x="565" y="160" width="570" height="68" rx="20" fill="#6546a5"/>
+    <path d="M565 208h570v20H565z" fill="#6546a5"/>
+    <text x="850" y="203" text-anchor="middle" class="paneltitle white">Backend · ASP.NET Core Web API · .NET 8</text>
+    <text x="850" y="260" text-anchor="middle" class="small">Controllers · DTOs · JWT authentication · Swagger · CORS</text>
+    <rect x="605" y="283" width="490" height="68" rx="12" fill="#f4effb" stroke="#ddd1f2"/>
+    <text x="850" y="313" text-anchor="middle" class="label">API controllers</text>
+    <text x="850" y="336" text-anchor="middle" class="small">AuthController · BookingsController · AdminController</text>
+    <rect x="605" y="372" width="490" height="68" rx="12" fill="#f4effb" stroke="#ddd1f2"/>
+    <text x="850" y="402" text-anchor="middle" class="label">Application services</text>
+    <text x="850" y="425" text-anchor="middle" class="small">AuthService · BookingService · AdminService</text>
+    <rect x="605" y="461" width="490" height="68" rx="12" fill="#f4effb" stroke="#ddd1f2"/>
+    <text x="850" y="491" text-anchor="middle" class="label">Repositories and domain models</text>
+    <text x="850" y="514" text-anchor="middle" class="small">UserRepository · BookingRepository · entity models</text>
+    <rect x="605" y="550" width="490" height="82" rx="12" fill="#eee7fa" stroke="#cdbbe9" stroke-width="2"/>
+    <text x="850" y="583" text-anchor="middle" class="label">Entity Framework Core 8 · AppDbContext</text>
+    <text x="850" y="610" text-anchor="middle" class="small">Provider selected at startup from connection configuration</text>
+    <path d="M850 351v18M850 440v18M850 529v17" stroke="#8265b7" stroke-width="3" marker-end="url(#arrow)"/>
+  </g>
+
+  <!-- persistence -->
+  <path d="M1137 580H1178V360H1200" fill="none" stroke="#16845b" stroke-width="4" marker-end="url(#arrowGreen)"/>
+  <text x="1184" y="341" text-anchor="middle" class="tiny" fill="#16845b">current</text>
+  <g class="card">
+    <rect x="1215" y="250" width="330" height="220" rx="20" fill="#e8f6ef" stroke="#75c4a0" stroke-width="2"/>
+    <rect x="1215" y="250" width="330" height="58" rx="20" fill="#16845b"/>
+    <path d="M1215 289h330v19h-330z" fill="#16845b"/>
+    <text x="1380" y="287" text-anchor="middle" class="paneltitle white">Configured by default</text>
+    <text x="1380" y="351" text-anchor="middle" class="label">EF Core InMemory</text>
+    <text x="1380" y="382" text-anchor="middle" class="small">Database: LogisticsHomeBookingSystem</text>
+    <text x="1380" y="412" text-anchor="middle" class="small">Seeded demo data · non-persistent</text>
+    <text x="1380" y="442" text-anchor="middle" class="tiny">Used when no valid DB connection is supplied</text>
+  </g>
+  <g class="card">
+    <rect x="1215" y="520" width="330" height="185" rx="20" fill="#fff" stroke="#aebdca" stroke-width="2" stroke-dasharray="9 7"/>
+    <text x="1380" y="562" text-anchor="middle" class="paneltitle">Optional provider</text>
+    <text x="1380" y="602" text-anchor="middle" class="label">PostgreSQL + Npgsql</text>
+    <text x="1380" y="633" text-anchor="middle" class="small">Supabase-compatible connection</text>
+    <text x="1380" y="664" text-anchor="middle" class="tiny">Selected only with a valid connection string</text>
+  </g>
+  <path d="M1137 620H1200" fill="none" stroke="#8b9caf" stroke-width="3" stroke-dasharray="8 7" marker-end="url(#arrow)"/>
+  <text x="1170" y="647" text-anchor="middle" class="tiny">optional</text>
+
+  <!-- legend and notes -->
+  <rect x="55" y="735" width="1490" height="150" rx="18" fill="#fff" stroke="#d3dee8"/>
+  <text x="88" y="777" class="paneltitle">Runtime configuration notes</text>
+  <circle cx="100" cy="817" r="7" fill="#16845b"/><text x="120" y="823" class="small">Repository appsettings.json has an empty DefaultConnection; Program.cs therefore selects EF Core InMemory by default.</text>
+  <circle cx="100" cy="850" r="7" fill="#8b9caf"/><text x="120" y="856" class="small">A valid SUPABASE_CONNECTION_STRING, POSTGRES_CONNECTION_STRING, DATABASE_URL, or configured DefaultConnection selects PostgreSQL.</text>
+  <text x="1510" y="920" text-anchor="end" class="tiny">Source: repository implementation and configuration · Architecture view</text>
+</svg>
